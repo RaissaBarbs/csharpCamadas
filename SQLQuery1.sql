@@ -37,7 +37,6 @@ create table TiposDeCombustivel(
 Tipo_id int primary key identity(1,1),
 Tipo_nome varchar(255),
 Tipo_valor float,
-Tipo_endereco varchar(255),
 pos_id int FOREIGN KEY REFERENCES Posto(pos_id) ON DELETE CASCADE
 )
 
