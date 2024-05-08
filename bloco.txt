@@ -1,0 +1,1 @@
+Scaffold-DbContext 'Name=ConnectionStrings:Chinook' Microsoft.EntityFrameworkCore.SqlServer -ContextDir DAL -OutputDir Models -DataAnnotations -Force
