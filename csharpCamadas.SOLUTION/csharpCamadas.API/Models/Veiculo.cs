@@ -8,9 +8,9 @@ using Microsoft.EntityFrameworkCore;
 namespace csharpCamadas.API.Models
 {
     [Table("Veiculo")]
-    public partial class Veiculo
+    public partial class Motoristum
     {
-        public Veiculo()
+        public Motoristum()
         {
             Motorista = new HashSet<Motoristum>();
         }

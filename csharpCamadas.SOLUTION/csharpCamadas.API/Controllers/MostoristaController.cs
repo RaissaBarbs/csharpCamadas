@@ -34,7 +34,7 @@ namespace csharpCamadas.API.Controllers
                         MotIdade = item.MotIdade,
                         MotNome = item.MotNome,
                         VeiId = item.VeiId,
-                        Vei = await _context.Set<Veiculo>().FindAsync(item.VeiId)
+                        Vei = await _context.Set<Motoristum>().FindAsync(item.VeiId)
                     };
                     list.Add(Model);
                 }
@@ -44,6 +44,7 @@ namespace csharpCamadas.API.Controllers
             {
                 return BadRequest("error: " + ex);
             }
+
         }
     }
 }

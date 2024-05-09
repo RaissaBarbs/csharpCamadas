@@ -22,7 +22,7 @@ namespace csharpCamadas.API.Controllers
         {
             try
             {
-                return Ok(await _context.Set<Veiculo>().ToListAsync());
+                return Ok(await _context.Set<Motoristum>().ToListAsync());
             }
             catch (Exception ex)
             {
@@ -36,11 +36,58 @@ namespace csharpCamadas.API.Controllers
         {
             try
             {
-                return Ok(await _context.Set<Veiculo>().FindAsync(id));
+                return Ok(await _context.Set<Motoristum>().FindAsync(id));
             }
             catch (Exception ex)
             {
                 return BadRequest("Ocorrou o um erro na busca error: " + ex);
+            }
+        }
+
+        [HttpPost("/Veiculos/Create")]
+        public async Task<IActionResult> AdicionarVeiculos(Motoristum Model)
+        {
+            try
+            {
+                await _context.AddAsync(Model);
+                await _context.SaveChangesAsync();
+                return Ok("Veiculo Adicionado");
+            }
+            catch (Exception)
+            {
+                return BadRequest("Veiculo Não Adicionado");
+            }
+        }
+
+        [HttpPut("/Veiculos/Atualizar")]
+        public async Task<IActionResult> AtualizarVeiculo(Motoristum Model)
+        {
+            try
+            {
+                _context.Update(Model);
+                await _context.SaveChangesAsync();
+                return Ok("Veiculo Atualizao");
+            }
+            catch (Exception)
+            {
+                return BadRequest("Veiculo Não Atualizado");
+            }
+        }
+
+
+        [HttpDelete("/Veiculos/Remove/{id}")]
+        public async Task<IActionResult> ApagarVeiculos(int id)
+        {
+            try
+            {
+                var Model = await _context.Set<Motoristum>().FindAsync(id);
+                _context.Remove(Model);
+                await _context.SaveChangesAsync();
+                return Ok("Veiculo Apagado");
+            }
+            catch (Exception)
+            {
+                return BadRequest("Veiculo Não Apagado");
             }
         }
 

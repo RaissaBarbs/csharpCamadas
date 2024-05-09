@@ -20,7 +20,7 @@ namespace csharpCamadas.API.DAL
         public virtual DbSet<Motoristum> Motorista { get; set; } = null!;
         public virtual DbSet<Posto> Postos { get; set; } = null!;
         public virtual DbSet<TiposDeCombustivel> TiposDeCombustivels { get; set; } = null!;
-        public virtual DbSet<Veiculo> Veiculos { get; set; } = null!;
+        public virtual DbSet<Motoristum> Veiculos { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -62,7 +62,7 @@ namespace csharpCamadas.API.DAL
                     .HasConstraintName("FK__TiposDeCo__pos_i__3E52440B");
             });
 
-            modelBuilder.Entity<Veiculo>(entity =>
+            modelBuilder.Entity<Motoristum>(entity =>
             {
                 entity.HasKey(e => e.VeiId)
                     .HasName("PK__Veiculo__136D0F565894C0F5");

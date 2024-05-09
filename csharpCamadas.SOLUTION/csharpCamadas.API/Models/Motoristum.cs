@@ -21,7 +21,7 @@ namespace csharpCamadas.API.Models
         public int? VeiId { get; set; }
 
         [ForeignKey(nameof(VeiId))]
-        [InverseProperty(nameof(Veiculo.Motorista))]
-        public virtual Veiculo? Vei { get; set; }
+        [InverseProperty(nameof(Motoristum.Motorista))]
+        public virtual Motoristum? Vei { get; set; }
     }
 }
